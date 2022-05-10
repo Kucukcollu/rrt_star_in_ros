@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch >
+    <arg name="rvizconfig" default="$(find motion_planner)/rviz/viz.rviz" />
+
+    <!-- RViz -->
+    <node pkg="rviz" name="rviz" type="rviz" output="screen" args="-d $(arg rvizconfig)"/>
+
+    <!-- Obstacle layer -->
+    <node pkg="motion_planner" name="markers" type="markers" output="screen" />
+    
+    <!-- OMPL-based RRT* motion planning ROS node -->
+    <node pkg="motion_planner" name="motion_planner" type="motion_planner" output="screen" />
+    
+</launch>
